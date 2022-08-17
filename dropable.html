@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang = "en">
+   <head>
+      <meta charset = "utf-8">
+      <title>jQuery Droppable</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet" />
+      <script src = "https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript"></script>
+      
+      <style type="text/css">
+		.ui-widget-header {
+            background:rgb(43, 122, 226);
+            border: 1px solid Gray;
+            color: #000000;
+            font-weight: bold;
+         }
+         .ui-widget-content {
+            background: rgb(255, 255, 0);
+            border: 1px solid #DDDDDD;
+         }
+		 .MyCls{background-color:#3a8d14}
+         #div1 { 
+            width: 200px; 
+            height: 200px; 
+            padding: 10px; 
+            margin: 0px 5px 10px 0; 
+			
+         }
+         
+         #div2{ 
+            width: 250px;
+            height: 250px;
+            padding: 10px; 
+            margin: 10px;  
+			
+			
+         }
+      </style>
+
+      <script type="text/javascript">
+         $(document).ready(function () {
+		  
+              $("#div1").draggable();
+
+              $("#div2").droppable({ 
+                  accept: "#div1",
+                  drop:function(event, ui) {
+                      $(this).addClass("MyCls").find("p").html("Done.....");
+					  
+                  }
+              });
+			  
+          });
+      </script>
+   </head>
+   
+   <body>
+         <div id="div1" class = "ui-widget-content">
+            <p>I'm Parth Patel</p>
+         </div>
+         <hr/>
+         <div id="div2" class = "ui-widget-header">
+            <p></p>
+         </div>
+      
+      
+   </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(183, 212, 254, 0.735);
+            color: rgba(11, 11, 98, 0.879);
+            font-weight: 400;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        #ans,
+        #ans2,
+        #ans3,
+        #ans4 {
+            margin-left: 86px;
+        }
+
+        #button {
+            margin-left: 10px;
+        }
+
+        div {
+            width: 40%;
+        }
+
+        .div2 {
+            margin-left: 50%;
+            margin-top: -115px;
+            /* margin-bottom: -20px; */
+        }
+
+        .div3 {
+            margin-top: 5%;
+        }
+
+        .div4 {
+            margin-top: -187px;
+            margin-left: 50%;
+        }
+        input{
+            background-color: rgba(200, 221, 251, 0.692) ;
+            border: 0px;
+            border-bottom: 2px solid  rgba(11, 11, 98, 0.879);
+        }
+        #button{
+            border: 2px solid  rgba(11, 11, 98, 0.879);
+            background-color:  rgba(11, 11, 98, 0.879);
+            color: white;
+            height: 30px;
+            width: 30px;
+            border-radius: 6px;
+        }
+    </style>
+
+</head>
+<script>
+    function addition() {
+        var a = parseInt(num1.value);
+        var b = parseInt(num2.value);
+        ans.value = a + b;
+
+    }
+
+    function substaction() {
+        var a = parseInt(num3.value);
+        var b = parseInt(num4.value);
+        ans2.value = a - b;
+
+    }
+
+    function multiply() {
+        var a = parseInt(num5.value);
+        var b = parseInt(num6.value);
+        ans3.value = a * b;
+
+    }
+    function divition() {
+        var a = parseInt(num7.value);
+        var b = parseInt(num8.value);
+        ans4.value = a / b;
+
+    }
+    // reset(){
+    //     document.getElementById.reset()
+    // }
+
+</script>
+
+<body>
+    <div class="div1">
+        enter number 1 : <input type="text" id="num1" width="100px"> <br><br>
+        enter number 2 : <input type="text" id="num2" width="100px"> <br><br>
+        answer : <input type="text" id="ans" width="100px" readonly>
+        <!-- <br><br> -->
+        <input type="button" id="button" onclick="addition()" value="+">
+        <!--<br><br><br><br>-->
+    </div>
+    <div class="div2">
+        enter number 1 : <input type="text" id="num3" width="100px"> <br><br>
+        enter number 2 : <input type="text" id="num4" width="100px"> <br><br>
+        answer : <input type="text" id="ans2" width="100px" readonly>
+        <!-- <br><br> -->
+        <input type="button" id="button" onclick="substaction()" value="-"><br><br><br><br>
+    </div>
+    <div class="div3">
+        enter number 1 : <input type="text" id="num5" width="100px"> <br><br>
+        enter number 2 : <input type="text" id="num6" width="100px"> <br><br>
+        answer : <input type="text" id="ans3" width="100px" readonly>
+        <!-- <br><br> -->
+        <input type="button" id="button" onclick="multiply()" value="*"><br><br><br><br>
+    </div>
+    <div class="div4">
+        enter number 1 : <input type="text" id="num7" width="100px"> <br><br>
+        enter number 2 : <input type="text" id="num8" width="100px"> <br><br>
+        answer : <input type="text" id="ans4" width="100px" readonly>
+        <!-- <br><br> -->
+        <input type="button" id="button" onclick="divition()" value="/">
+    </div>
+    <!-- <input type="button" value="reset data" onclick="reset()"> -->
+</body>
+
+</html>

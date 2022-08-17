@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+
+    <script>
+        //Reg Ex Declaration - Globaly.
+        var $FNameLNameRegEx = /^([a-zA-Z]{2,20})$/;
+        var $FullNameRegEx = /^([a-zA-Z ]{2,40})$/;
+        var $BankAccountNameRegEx = /^([a-zA-Z ]{2,60})$/;
+        var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/;
+
+        var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
+        var $ConNoRegEx = /^([0-9]{10})$/;
+        var $AgeRegEx = /^([0-9]{1,2})$/;
+        var $AadhaarNoRegEx = /^([0-9]{12})$/;
+        var $GSTNoRegEx = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+        var $IndianDrivingLicenseNoRegEx = /^([A-Z]{2,3}[-/0-9]{8,13})$/;
+        var $IndianVehicleRegNoRegEx = /^([A-Z]{2}[0-9]{1,2}[A-Z]{1,3}[0-9]{1,4})$/;
+        var $PincodeRegEx = /^[1-9][0-9]{5,6}$/;
+        var $PANNoRegEx = /^[A-Z]{3}[ABCFGHLJPT][A-Z][0-9]{4}[A-Z]$/;
+        var $IFSCCodeRegEx = /^[A-Za-z]{4}0[A-Z0-9a-z]{6}$/;
+        var $BankAccountNoRegEx = /^([0-9]{9,18})$/;
+        var $PostTitleRegex = /^(.{30,300})$/;
+        var $PostDescRegex = /^(.{100,3000})$/;
+        var $LatitudeLongitude = /^(-?(?:1[0-7]|[1-9])?\d(?:\.\d{1,8})?|180(?:\.0{1,8})?)$/;
+
+        $(document).ready(function () {
+
+            var fnameFlag=false,lnameFlag=false,emailFlag=false,numberFlag=false;
+
+            // first name validation.........................................
+
+            $("#fname").blur(function () {
+                $("#fnamevalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#fnamevalidation").html("(*) First name required");
+                }
+                else {
+                    if (!$(this).val().match($FNameLNameRegEx)) {
+                        $("#fnamevalidation").html("(*) Invalid Keypress");
+                    }
+                }
+            });
+
+            $("#fname").keypress(function (a) {
+                var flag = false;
+                $("#fnamevalidation").empty();
+                ((a.which >= 65 && a.which <= 90) || (a.which >= 97 && a.which <= 122))
+                    ? flag = true
+                    : (flag = false, $("#fnamevalidation").html("Invalid Keypress"))
+                return flag;
+            });
+
+            // Last name validation..................
+
+            $("#lname").blur(function () {
+                $("#lnamevalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#lnamevalidation").html("(*) Last name required");
+                }
+                else {
+                    if (!$(this).val().match($FNameLNameRegEx)) {
+                        $("#lnamevalidation").html("(*) Invalid Keypress");
+                    }
+                }
+            });
+
+            $("#lname").keypress(function (a) {
+                var flag = false;
+                $("#lnamevalidation").empty();
+                ((a.which >= 65 && a.which <= 90) || (a.which >= 97 && a.which <= 122))
+                    ? flag = true
+                    : (flag = false, $("#lnamevalidation").html("Invalid Keypress"))
+                return flag;
+            });
+
+            // email validation......................
+
+            $("#email").blur(function () {
+                $("#emailvalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#emailvalidation").html("(*) Email ID required");
+                }
+                else {
+                    if (!$(this).val().match($EmailIdRegEx)) {
+                        $("#emailvalidation").html("(*) Invalid Keypress");
+                    }
+                }
+            });
+
+            // number validation...................
+            $("#number").blur(function () {
+                $("#numbervalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#numbervalidation").html("(*) Contact no. required");
+                }
+                else {
+                    if (!$(this).val().match($ConNoRegEx)) {
+                        $("#numbervalidation").html("(*) Invalid contact no");
+                    }
+                }
+            });
+            $("#number").keypress(function (a) {
+                var flag = false;
+                $("#numbervalidation").empty();
+                (a.which >= 48 && a.which <= 57)
+                    ? flag = true
+                    : (flag = false, $("#numbervalidation").html("Invalid keypress"))
+                return flag;
+            });
+
+            // submit validation.....................
+            
+            $("#submit").click(function(){
+                $("#fnamevalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null)
+                {
+                    $("#fnamevalidation").html("(*) First name required");
+                    fnameFlag=false;
+                }
+                else {
+                    if (!$(this).val().match($FNameLNameRegEx)) 
+                    {
+                        $("#fnamevalidation").html("(*) Invalid Keypress");
+                        fnameFlag=false;
+                    }
+                    else
+                    {
+                        fnameFlag=true;
+                    }
+                }
+
+                
+                $("#lnamevalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) 
+                {
+                    $("#lnamevalidation").html("(*) Last name required");
+                    lnameFlag=false;
+                }
+                else {
+                    if (!$(this).val().match($FNameLNameRegEx)) 
+                    {
+                        $("#lnamevalidation").html("(*) Invalid Keypress");
+                        lnameFlag=false;
+                    }
+                    else{
+                        lnameFlag=true;
+                    }
+                }
+
+                $("#emailvalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) 
+                {
+                    $("#emailvalidation").html("(*) Email ID required");
+                    emailFlag=false;
+                }
+                else {
+                    if (!$(this).val().match($EmailIdRegEx)) 
+                    {
+                        $("#emailvalidation").html("(*) Invalid Keypress");
+                        emailFlag=false;
+                    }
+                    else
+                    {
+                        emailFlag=true;
+                    }
+                }
+                $("#numbervalidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) 
+                {
+                    $("#numbervalidation").html("(*) Contact no. required");
+                    numberFlag=false;
+                }
+                else {
+                    if (!$(this).val().match($ConNoRegEx)) 
+                    {
+                        $("#numbervalidation").html("(*) Invalid contact no");
+                        numberFlag=false;
+                    }
+                    else
+                    {
+
+                        numberFlag=true;
+                    }
+                }
+
+                if(fnameFlag==true && lnameFlag==true && emailFlag==true && numberFlag==true)
+                {
+                    alert("Form Submit Successfully");
+                }
+                else
+                {
+                    alert("Invalid Input");
+                }
+            });
+
+        });
+    </script>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        small{
+            color: red;
+        }
+        
+    </style>
+</head>
+
+<body>
+    First Name : <input type="text" id="fname" autofocus><br>
+    <small id="fnamevalidation"></small>
+    <hr>
+    Last Name : <input type="text" id="lname"><br>
+    <small id="lnamevalidation"></small>
+    <hr>
+    Email : <input type="text" id="email"><br>
+    <small id="emailvalidation"></small>
+    <hr>
+    Number : <input type="number" id="number"><br>
+    <small id="numbervalidation"></small>
+    <hr>
+    <br>
+    <button id="sumbit">Submit</button>
+</body>
+
+</html>

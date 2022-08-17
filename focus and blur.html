@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>focus and blur</title>
+</head>
+<script>
+    function getfocus(){
+        document.getElementById("box").focus();
+    }
+    function getblur(){
+        document.getElementById("box").blur();
+    }
+    
+</script>
+<body>
+    <h1>
+        Focus and Blur Effect
+    </h1>
+    Name : <input type="text" id="box" placeholder="enter the name">
+    <br><br>
+    <hr>
+    <input type="button" onclick="getfocus()" value="Focus">
+    <input type="button" onclick="getblur()" value="Blur">
+
+</body>
+</html>

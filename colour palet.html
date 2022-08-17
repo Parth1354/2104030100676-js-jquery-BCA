@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascriopt colour palet </title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        div {
+            background-color: white;
+            height: 150px;
+            width: 500px;
+            text-align: center;
+            /* align-items: center; */
+            font-size: 30px;
+            padding-top: 100px;
+            margin-bottom: 50px;
+        }
+        input{
+            border-radius: 10%;
+            height: 30px;
+            width: 60px;
+            border: 0.5px solid grey;
+        }
+    </style>
+</head>
+<script>
+    function BGred() {
+        document.body.style.background = "Red";
+    }
+    function BGskyblue() {
+        document.body.style.background = "Skyblue";
+    }
+    function BGgreen() {
+        document.body.style.background = "Green";
+    }
+    function BGyellow() {
+        document.body.style.background = "Yellow";
+    }
+    function BGviolet() {
+        document.body.style.background = "blueviolet";
+    }
+    function BGcolor() {
+
+        document.body.style.backgroundColor = document.getElementById("palet").value;
+    }
+    function DIVred() {
+        document.getElementById("div").style.background  = "Red";
+    }
+    function DIVskyblue() {
+        document.getElementById("div").style.background  = "Skyblue";
+    }
+    function DIVgreen() {
+        document.getElementById("div").style.background  = "Green";
+    }
+    function DIVyellow() {
+        document.getElementById("div").style.background  = "Yellow";
+    }
+    function DIVviolet() {
+        document.getElementById("div").style.background  = "blueviolet";
+    }
+    function DIVcolor() {
+
+        document.getElementById("div").style.backgroundColor = document.getElementById("colorpalet").value;
+    }
+DIV
+</script>
+
+<body>
+    <div id="div">
+        Parth Patel
+    </div><hr><br>
+    Change Background colour : <br><br>
+    basic colur : 
+    <input type="button" value="red" onclick="BGred()">
+    <input type="button" value="skyblue" onclick="BGskyblue()">
+    <input type="button" value="greeen" onclick="BGgreen()">
+    <input type="button" value="yellow" onclick="BGyellow()">
+    <input type="button" value="violet" onclick="BGviolet()">
+     &nbsp;&nbsp;&nbsp; OR <br><br>
+    Colour Picker : <input type="color" id="palet" onchange="BGcolor()">
+    <br><br><hr><br>
+    Change Division Colour : <br><br>
+    basic colur : 
+    <input type="button" value="red" onclick="DIVred()">
+    <input type="button" value="skyblue" onclick="DIVskyblue()">
+    <input type="button" value="greeen" onclick="DIVgreen()">
+    <input type="button" value="yellow" onclick="DIVyellow()">
+    <input type="button" value="violet" onclick="DIVviolet()">
+     &nbsp;&nbsp;&nbsp; OR <br><br>
+    Colour Picker : <input type="color" id="colorpalet" onchange="DIVcolor()">
+</body>
+
+</html>
